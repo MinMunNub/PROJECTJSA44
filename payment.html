@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skibidi Rewards</title>
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+  <header class="payment-header">
+    <div class="logo-area">
+      <img src="images/logo.png" alt="Logo" class="site-logo">
+      <span class="site-name">BallsExpress</span>
+    </div>
+    <div class="header-text">
+      <p>Thanh toan & Uu dai</p>
+    </div>
+    <div class="profile-info">
+      <h2>👋 Xin chào, <span id="username"></span></h2>
+    </div>
+  </header>
+
+
+    <div class="main-wrapper">
+          <div class="rewards-card">
+    <h1>🎁Phan thuong skibidi🎁</h1>
+    <div class="points-line">
+      <p>Diem hien co: <span id="collectedPoints">100</span></p>
+      <p>Diem voucher: <span id="voucherPoints">0</span>/100</p>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="buttons">
+      <button class="add-btn" onclick="addPoints()">Tich diem</button>
+      <button class="reset-btn" onclick="resetVoucher()">Huy</button>
+      <button class="voucher-btn" onclick="showVoucher()">Tao voucher</button>
+    </div>
+  </div>
+
+
+
+    <!-- Voucher Modal -->
+    <div id="voucherModal" class="modal">
+        <div class="modal-content" id="printableArea">
+            <h2>🎟️ Ma voucher cua ban</h2>
+                <div class="code-container">
+                    <p class="code-display" id="voucherCode">XXXXXXXX</p>
+                    <img src="images/app.png" class="copy-btn" onclick="copyCode()" alt="Copy" title="Copy code">
+                </div>
+            <p class="discount-info" id="discountInfo">Giam gia: 0%</p>
+            <button class="ok-btn" onclick="closeVoucher()">OK</button>
+        </div>
+    </div>
+
+
+
+    <section class="link-section">
+        <h2>💳 Lien ket voi ngan hang cua ban</h2>
+        <p>Lien ket truc tuyen voi ngan hang cua ban, tao mot phuong thuc thanh toan thuan tien</p>
+
+            <div id="userCards" class="card-list">
+                <!-- If no cards, show this button -->
+
+            </div>
+
+            <div class="link-card-btn-container">
+                <button class="link-now-btn" onclick="openLinkPopup()">Lien ket</button>
+            </div>
+    </section>
+
+    <!-- POPUP FORM -->
+    <div id="linkPopup" class="modal">
+        <div class="modal-content form-card">
+            <h3>🔗 Lien ket ngan hang</h3>
+    
+            <label for="bankSelect">Chon ngan hang:</label>
+            <option value="" disabled selected></option>
+            <select id="bankSelect" class="dropdown">
+              <option value="Vietcombank">Vietcombank</option>
+              <option value="Techcombank">Techcombank</option>
+              <option value="BIDV">BIDV</option>
+              <option value="MB Bank">MB Bank</option>
+              <option value="ACB">ACB</option>
+            </select>
+
+            <label for="cardNumber">So the ngan hang:</label>
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19"/>
+
+            <div class="modal-actions">
+                <button class="create-btn" onclick="createCard()">Tao</button>
+                <button class="cancel-btn" onclick="closeLinkPopup()">Huy</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+  <script src="js/payment.js"></script>
+</body>
+</html>

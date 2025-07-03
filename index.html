@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallsExpress - Dịch vụ vận chuyển hàng đầu Việt Nam</title>
+    <meta name="description" content="BallsExpress - Dịch vụ vận chuyển uy tín hàng đầu Việt Nam. Đưa đón, giao hàng, đồ ăn và nhiều dịch vụ khác.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero-header">
+      <div class="logo">BallsExpress</div>
+      <div class="side-features"></div>
+      <div class="search-auth" id="auth-buttons">
+        <button class="auth-btn" onclick="window.location.href='signin.html'">Đăng nhập</button>
+        <button class="auth-btn" onclick="window.location.href='signup.html'">Đăng ký</button>
+      </div>
+
+      <div class="search-auth" id="welcome-user" style="display: none; position: relative;">
+        <div class="user-wrapper">
+          <div class="user-bar">
+            👋 Xin chào, <span id="username-display"></span>
+          </div>
+          <img src="images/user.png" class="profile-icon" id="profile-icon" alt="Profile" />
+
+          <div class="dropdown-menu" id="user-dropdown">
+            <a href="profile.html"><img src="images/avatar.png" alt=""> Hồ sơ</a>
+            <a href="#" id="logout-btn"><img src="images/out.png" alt=""> Đăng xuất</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <h1><span class="highlight">Cai thien</span> trai nghiem di chuyen cua ban.</h1>
+      <p>Don vi van chuyen uy tin hang dau Viet Nam.</p>
+    </div>
+  </section>
+
+  <nav class="service-icons">
+    <div class="service-icon"><img src="images/motorcycle.png"><span>Dua don</span></div>
+    <div class="service-icon"><img src="images/restaurant.png"><span>Do an</span></div>
+    <div class="service-icon"><img src="images/delivery-man.png"><span>Giao hang</span></div>
+    <div class="service-icon"><img src="images/fast-delivery (1).png"><span>Hoa toc</span></div>
+    <div class="service-icon"><img src="images/car.png" alt=""><span>Di tour</span></div>
+  </nav>
+
+  <section class="quick-cards">
+  <div class="card">
+    <img src="images/download.jpg" class="card-icon" alt="Credit Card">
+    <div class="card-info">
+      <div class="card-title">Thanh toán</div>
+      <div class="card-sub">Thêm thẻ để thanh toán nhanh hơn</div>
+      <a href="#">Lien ket ngay</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="images/images.jpg" class="card-icon" alt="GrabRewards">
+    <div class="card-info">
+      <div class="card-title">SkibidiRewards</div>
+      <div class="card-sub">0 điểm - tích lũy thêm để đổi quà!</div>
+      <a href="#">Bat dau dat xe nao</a>
+    </div>
+  </div>
+</section>
+
+<section class="promo-section">
+  <h3>Ban muon di dau do</h3>
+  <div class="places-grid">
+    <div class="place-card">
+      <div class="placeholder-img place-hanoi"><p>HA NOI</p></div>
+      <div class="place-info">
+        <h4>Ha Noi</h4>
+        <p>Pho co, Van Mieu, Ho Guom</p>
+        <span class="price">250,000₫</span>
+        <span class="rating">⭐ 4.8</span>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="placeholder-img place-saigon"><p>TP. HCM</p></div>
+      <div class="place-info">
+        <h4>TP. Ho Chi Minh</h4>
+        <p>Ben Thanh, Bitexco, Pham Ngu Lao</p>
+        <span class="price">180,000₫</span>
+        <span class="rating">⭐ 4.7</span>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="placeholder-img place-danang"><p>DA NANG</p></div>
+      <div class="place-info">
+        <h4>Da Nang</h4>
+        <p>Cau Vang, My Khe, Ba Na Hills</p>
+        <span class="price">320,000₫</span>
+        <span class="rating">⭐ 4.9</span>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="placeholder-img place-hoian"><p>HOI AN</p></div>
+      <div class="place-info">
+        <h4>Hoi An</h4>
+        <p>Pho co, Den long, Chua Cau</p>
+        <span class="price">280,000₫</span>
+        <span class="rating">⭐ 4.8</span>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="placeholder-img place-dalat"><p>DA LAT</p></div>
+      <div class="place-info">
+        <h4>Da Lat</h4>
+        <p>Hoa tulip, Thac Elephant, Crazy House</p>
+        <span class="price">200,000₫</span>
+        <span class="rating">⭐ 4.6</span>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="placeholder-img place-halong"><p>HA LONG</p></div>
+      <div class="place-info">
+        <h4>Ha Long</h4>
+        <p>Vinh Ha Long, Hang Sung Sot, Titop</p>
+        <span class="price">450,000₫</span>
+        <span class="rating">⭐ 4.9</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="suggestions">
+    <h3>Mua ngay - Top Sales Food</h3>
+    <div class="food-grid">
+      <div class="food-card">
+        <div class="placeholder-img food-pho"><p>PHO BO</p></div>
+        <div class="food-info">
+          <h4>Pho Bo</h4>
+          <p>Pho truyen thong Ha Noi</p>
+          <span class="price">45,000₫</span>
+          <span class="discount">-20%</span>
+          <span class="rating">⭐ 4.9</span>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="placeholder-img food-pizza"><p>PIZZA</p></div>
+        <div class="food-info">
+          <h4>Pizza Hải Sản</h4>
+          <p>Pizza Italian size L</p>
+          <span class="price">159,000₫</span>
+          <span class="discount">-15%</span>
+          <span class="rating">⭐ 4.7</span>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="placeholder-img food-banhmi"><p>BANH MI</p></div>
+        <div class="food-info">
+          <h4>Banh Mi Thit Nuong</h4>
+          <p>Banh mi Saigon truyen thong</p>
+          <span class="price">25,000₫</span>
+          <span class="discount">-10%</span>
+          <span class="rating">⭐ 4.8</span>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="placeholder-img food-bunbo"><p>BUN BO HUE</p></div>
+        <div class="food-info">
+          <h4>Bun Bo Hue</h4>
+          <p>Bun bo Hue cay dam da</p>
+          <span class="price">50,000₫</span>
+          <span class="discount">-25%</span>
+          <span class="rating">⭐ 4.9</span>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="placeholder-img food-comtam"><p>COM TAM</p></div>
+        <div class="food-info">
+          <h4>Com Tam Suon Nuong</h4>
+          <p>Com tam Saigon dac biet</p>
+          <span class="price">35,000₫</span>
+          <span class="discount">-30%</span>
+          <span class="rating">⭐ 4.6</span>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="placeholder-img food-goicuon"><p>GOI CUON</p></div>
+        <div class="food-info">
+          <h4>Goi Cuon Tom Thit</h4>
+          <p>Goi cuon tuoi mat lanh</p>
+          <span class="price">30,000₫</span>
+          <span class="discount">-20%</span>
+          <span class="rating">⭐ 4.7</span>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="placeholder-img food-bubbletea"><p>TRA SUA</p></div>
+        <div class="food-info">
+          <h4>Tra Sua Tran Chau</h4>
+          <p>Tra sua size L + tran chau</p>
+          <span class="price">35,000₫</span>
+          <span class="discount">-15%</span>
+          <span class="rating">⭐ 4.8</span>
+        </div>
+      </div>
+      <div class="food-card">
+        <div class="placeholder-img food-che"><p>CHE BA MAU</p></div>
+        <div class="food-info">
+          <h4>Che Ba Mau</h4>
+          <p>Che ba mau truyen thong</p>
+          <span class="price">20,000₫</span>
+          <span class="discount">-10%</span>
+          <span class="rating">⭐ 4.5</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bottom-nav">
+    <div class="nav-item"><img src="images/checklist.png" alt=""><br><a href="#">Hoat dong</a></div>
+    <div class="nav-item"><img src="images/credit-card.png" alt=""><br><a href="payment.html">Thanh toan</a></div>
+    <div class="nav-item"><img src="images/chatting.png" alt=""><br><a href="msg.html">Tin nhan</a></div>
+  </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

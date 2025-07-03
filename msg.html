@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Messages</title>
+  <link rel="stylesheet" href="css/msg.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="images/email.png" alt="Logo" class="logo" />
+    <h1>MESSAGES</h1>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="driver">Tin từ tài xế</button>
+    <button class="tab-btn" data-tab="brand">Tin từ thương hiệu</button>
+    <button class="tab-btn" data-tab="system">Tin từ hệ thống</button>
+  </div>
+
+  <div id="driver" class="tab-content active">
+    <!-- tai xe -->
+    <div class="message-card">
+      <span><strong>Tài xế Minh:</strong> Tôi đang đến gần vị trí của bạn.</span>
+      <img src="images/more.png" class="msg-menu-icon" />
+      <div class="msg-menu">
+        <button class="mute-btn">Tắt âm</button>
+        <button class="notif-btn">Ẩn thông báo</button>
+        <button class="delete-btn">Xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="brand" class="tab-content">
+    <!-- nhan hang -->
+    <div class="message-card" data-content="Ưu đãi sốc Gà rán 49k!">
+      <span><strong>Lotteria:</strong> 🎉 Ưu đãi sốc Gà rán 49k!</span>
+      <img src="images/more.png" class="msg-menu-icon" />
+      <div class="msg-menu">
+        <button class="mute-btn">Tắt âm</button>
+        <button class="notif-btn">Ẩn thông báo</button>
+        <button class="delete-btn">Xóa</button>
+      </div>
+    </div>
+
+    <div class="message-card" data-content="Mua 1 tặng 1 Highlands khung giờ vàng 14h–17h">
+      <span><strong>Highlands:</strong> Mua 1 tặng 1 khung giờ vàng 14h–17h</span>
+      <img src="images/more.png" class="msg-menu-icon" />
+      <div class="msg-menu">
+        <button class="mute-btn">Tắt âm</button>
+        <button class="notif-btn">Ẩn thông báo</button>
+        <button class="delete-btn">Xóa</button>
+      </div>
+    </div>
+
+    <div class="message-card" data-content="Mua combo Pizza kèm nước ngọt chỉ 99k!">
+      <span><strong>Pizza Hut:</strong> 🍕 Mua combo pizza kèm nước ngọt chỉ 99k!</span>
+      <img src="images/more.png" class="msg-menu-icon" />
+      <div class="msg-menu">
+        <button class="mute-btn">Tắt âm</button>
+        <button class="notif-btn">Ẩn thông báo</button>
+        <button class="delete-btn">Xóa</button>
+      </div>
+    </div>
+  </div>
+
+      
+
+  <div id="system" class="tab-content">
+    <!-- ung dung -->
+    <div class="message-card" data-content="Tài khoản của bạn đã đăng nhập trên thiết bị mới.">
+      <span><strong>Hệ thống:</strong> Tài khoản của bạn đã đăng nhập trên thiết bị mới.</span>
+      <img src="images/more.png" class="msg-menu-icon" />
+      <div class="msg-menu">
+        <button class="mute-btn">Tắt âm</button>
+        <button class="notif-btn">Ẩn thông báo</button>
+        <button class="delete-btn">Xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- chat -->
+  <div class="chat-popup" id="chatPopup">
+    <div class="chat-header">
+      <img src="images/usership.png" alt="profile" />
+      <span class="chat-name">Tài xế Minh</span>
+      <img id="chatClose" class="chat-close" src="images/close.png" alt="Đóng" />
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg left">Tôi đang đến gần vị trí của bạn.</div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" placeholder="Nhập tin nhắn..." />
+      <button id="chatSend"><img src="images/send.png" alt=""></button>
+    </div>
+  </div>
+
+
+
+
+  <script src="js/msg.js"></script>
+</body>
+</html>

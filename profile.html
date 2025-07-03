@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ người dùng</title>
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+
+  <div class="profile-header">
+    <div class="profile-left">
+      <div class="avatar-wrapper">
+        <img src="images/usercbd.png" alt="Avatar" class="profile-avatar" id="profilePic" />
+        <label for="uploadPic" class="edit-icon">
+          <img src="images/pen.png" alt="Edit" />
+        </label>
+        <input type="file" id="uploadPic" accept="image/*" style="display: none" />
+      </div>
+      <div class="profile-info">
+        <h2>👋 Xin chào, <span id="username"></span></h2>
+        <p class="badge">🥉 Thành viên: <span id="tier">Đồng</span></p>
+        <p id="phone-display">
+          <button id="addPhoneBtn" class="add-phone"><img class="number-submit" src="images/phone-call.png" alt=""> Thêm số điện thoại</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+<!-- popup -->
+  <div id="phoneModal" class="phone-modal">
+    <div class="modal-content">
+      <h3>Nhập số điện thoại của bạn</h3>
+      <input type="tel" id="phoneInput" placeholder="VD: 0812513855" maxlength="10"/>
+      <div class="modal-actions">
+        <button id="savePhoneBtn">Lưu</button>
+        <button id="cancelPhoneBtn">Hủy</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="profile-container">
+    <div class="card-section">
+
+      <div class="card">
+        <img src="images/cart.jpg" class="card-icon" alt="Payment" />
+        <div class="card-info">
+          <div class="card-title">Lịch sử đặt hàng</div>
+          <div class="card-sub">Bạn đã hoàn thành <strong id="orders">0</strong> đơn</div>
+          <button class="card-btn" onclick="window.location.href='order.html'">🛒 Bắt đầu đặt hàng</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/cc.jpg" class="card-icon" alt="Perks" />
+        <div class="card-info">
+          <div class="card-title">SkibidiRewards</div>
+          <div class="card-sub">Chưa có gói đặc quyền nào</div>
+          <button class="card-btn" onclick="window.location.href='perks.html'">💎 Mua gói đặc quyền</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  
+  <section class="favorites-section">
+    <div class="favorites-header">
+      <button class="slide-btn left">‹</button>
+      <h2>Dia diem yeu thich cua toi</h2>
+      <button class="slide-btn right">›</button>
+    </div>
+    <div class="favorites-list">
+      <div class="favorite-card">
+        <img src="images/dalat.jpg" alt="Da Lat">
+        <div class="card-title">Đà Lạt</div>
+        <div class="card-desc">Thành phố ngàn hoa</div>
+      </div>
+      <div class="favorite-card">
+        <img src="images/sapa.jpg" alt="Sapa">
+        <div class="card-title">Sapa</div>
+        <div class="card-desc">Núi non & bản làng</div>
+      </div>
+      <div class="favorite-card">
+        <img src="images/danang.jpg" alt="Da Nang">
+        <div class="card-title">Đà Nẵng</div>
+        <div class="card-desc">Biển Mỹ Khê, Bà Nà Hills</div>
+      </div>
+      <div class="favorite-card">
+        <img src="images/phuquoc.jpg" alt="Phu Quoc">
+        <div class="card-title">Phú Quốc</div>
+        <div class="card-desc">Đảo ngọc phía Nam</div>
+      </div>
+      <div class="favorite-card">
+        <img src="images/hoian.jpg" alt="Hoi An">
+        <div class="card-title">Hội An</div>
+        <div class="card-desc">Phố cổ lung linh đèn</div>
+      </div>
+      <div class="favorite-card">
+        <img src="images/ninhbinh.jpg" alt="Ninh Binh">
+        <div class="card-title">Ninh Bình</div>
+        <div class="card-desc">Tràng An, Tam Cốc</div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="favorites-section">
+    <div class="favorites-header">
+      <button class="slide-btn left">‹</button>
+      <h2>Nha hang yeu thich cua toi</h2>
+      <button class="slide-btn right">›</button>
+    </div>
+    <div class="favorites-list">
+      <div class="favorite-card">
+        <img src="images/kfc.jpg" alt="KFC">
+      <div class="card-title">KFC</div>
+      <div class="card-desc">Gà rán giòn tan</div>
+    </div>
+    <div class="favorite-card">
+      <img src="images/lotte.jpg" alt="Lotteria">
+      <div class="card-title">Lotteria</div>
+      <div class="card-desc">Burger & combo gà</div>
+    </div>
+    <div class="favorite-card">
+      <img src="images/mac.jpg" alt="McDonald's">
+      <div class="card-title">McDonald's</div>
+      <div class="card-desc">Burger, khoai tây chiên</div>
+    </div>
+    <div class="favorite-card">
+      <img src="images/pizza.jpg" alt="Pizza Hut">
+      <div class="card-title">Pizza Hut</div>
+      <div class="card-desc">Pizza phô mai đầy đặn</div>
+    </div>
+    <div class="favorite-card">
+      <img src="images/cafe.jpg" alt="Highlands Coffee">
+      <div class="card-title">Highlands Coffee</div>
+      <div class="card-desc">Phin sữa đá & bánh mì</div>
+    </div>
+    <div class="favorite-card">
+        <img src="images/starbuck.jpg" alt="Cheese Coffee">
+        <div class="card-title">Starbuck</div>
+        <div class="card-desc">Cafe trẻ trung, hiện đại</div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="js/profile.js"></script>
+</body>
+</html>
