@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tracking</title>
+  <link rel="stylesheet" href="css/activity.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <i class="fas fa-truck logo"></i>
+      <h1>HOẠT ĐỘNG GIAO HÀNG</h1>
+    </div>
+  </header>
+
+  <!-- thanh tim kiem -->
+  <div class="search-container">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Tìm kiếm theo mã đơn hàng...">
+    </div>
+  </div>
+
+  <!-- status -->
+  <div class="status-tabs">
+    <button class="status-tab active" data-status="all">
+      <i class="fas fa-list"></i>
+      Tất cả
+    </button>
+    <button class="status-tab" data-status="placed">
+      <i class="fas fa-shopping-cart"></i>
+      Đã đặt hàng
+    </button>
+    <button class="status-tab" data-status="shipped">
+      <i class="fas fa-box"></i>
+      Đã vận chuyển
+    </button>
+    <button class="status-tab" data-status="out-for-delivery">
+      <i class="fas fa-truck"></i>
+      Đang giao
+    </button>
+    <button class="status-tab" data-status="delivered">
+      <i class="fas fa-check-circle"></i>
+      Đã giao
+    </button>
+    <button class="status-tab" data-status="failed">
+      <i class="fas fa-exclamation-triangle"></i>
+      Thất bại
+    </button>
+  </div>
+
+  <!-- feed -->
+  <div class="activity-container">
+    <div class="activity-feed" id="activityFeed">
+    </div>
+    
+    <!-- xem them -->
+    <div class="load-more-container">
+      <button class="load-more-btn" id="loadMoreBtn">
+        <i class="fas fa-chevron-down"></i>
+        Xem thêm
+      </button>
+    </div>
+  </div>
+
+  <!-- page -->
+  <div class="pagination">
+    <button class="page-btn" id="prevBtn">
+      <i class="fas fa-chevron-left"></i>
+      Trước
+    </button>
+    <span class="page-info">
+      Trang <span id="currentPage">1</span> / <span id="totalPages">5</span>
+    </span>
+    <button class="page-btn" id="nextBtn">
+      Tiếp
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <script src="js/activity.js"></script>
+</body>
+</html>

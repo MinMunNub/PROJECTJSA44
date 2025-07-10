@@ -1,7 +1,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
+      background: linear-gradient(to right, #77f749, #b2ff7e);
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -32,7 +32,7 @@
     button {
       width: 100%;
       padding: 12px;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
+      background: linear-gradient(to right, #42ff90, #6ae735);
       color: #fff;
       border: none;
       border-radius: 5px;

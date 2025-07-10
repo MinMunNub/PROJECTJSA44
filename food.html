@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fud</title>
+    <link rel="stylesheet" href="css/food.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🍴</div>
+                    <h1>🚚BallsExpress</h1>
+                </div>
+                <button class="history-btn" onclick="openHistoryModal()">
+                    📋 Lịch sử đặt hàng
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- hed do-->
+    <section class="hero">
+        <div class="container">
+            <h2>Chào mừng đến với BallsExpress</h2>
+            <p>Nền tảng đặt món ăn hàng đầu tại Việt Nam. Giao hàng nhanh chóng, đa dạng lựa chọn từ hàng trăm nhà hàng chất lượng cao.</p>
+        </div>
+    </section>
+
+    <!-- nha hang noi -->
+    <section class="section">
+        <div class="container">
+            <h3>Nhà hàng phổ biến</h3>
+            <div class="restaurant-scroll">
+                <div class="restaurant-card popular" data-restaurant="1">
+                    <img src="food/phohanoi.jpg" class="restaurant-image" alt="">
+                    <div class="restaurant-info">
+                        <h4>Phở Hà Nội</h4>
+                        <p>Món Việt</p>
+                        <div class="restaurant-details">
+                            <span class="rating">⭐ 4.8</span>
+                            <span class="time">⏱️ 15-25 phút</span>
+                        </div>
+                        <button class="detail-btn" onclick="openRestaurantModal(1)">Xem chi tiết</button>
+                    </div>
+                </div>
+                
+                <div class="restaurant-card popular" data-restaurant="2">
+                    <img src="food/bunbohuesaigon.jpg" class="restaurant-image" alt="">
+                    <div class="restaurant-info">
+                        <h4>Bún Bò Huế Sài Gòn</h4>
+                        <p>Món Miền Trung</p>
+                        <div class="restaurant-details">
+                            <span class="rating">⭐ 4.6</span>
+                            <span class="time">⏱️ 20-30 phút</span>
+                        </div>
+                        <button class="detail-btn" onclick="openRestaurantModal(2)">Xem chi tiết</button>
+                    </div>
+                </div>
+                
+                <div class="restaurant-card popular" data-restaurant="3">
+                    <img src="food/banhmithitnuong.jpg" class="restaurant-image" alt="">
+                    <div class="restaurant-info">
+                        <h4>Bánh Mì Thịt Nướng</h4>
+                        <p>Đặc sản Việt Nam</p>
+                        <div class="restaurant-details">
+                            <span class="rating">⭐ 4.7</span>
+                            <span class="time">⏱️ 10-15 phút</span>
+                        </div>
+                        <button class="detail-btn" onclick="openRestaurantModal(3)">Xem chi tiết</button>
+                    </div>
+                </div>
+                
+
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- danh muc -->
+    <section class="section categories">
+        <div class="container">
+            <h3>Danh mục nhà hàng</h3>
+            
+            <!-- do an nhanh -->
+            <div class="category">
+                <h4>🍔 Thức ăn nhanh</h4>
+                <div class="restaurant-scroll">
+                    <div class="restaurant-card" data-restaurant="6">
+                        <img src="food/banhmipate1.jpg" class="restaurant-image" alt="">
+                        <div class="restaurant-info">
+                            <h5>Bánh Mì Pate</h5>
+                            <p>Thức ăn nhanh</p>
+                            <div class="restaurant-details">
+                                <span class="rating">⭐ 4.3</span>
+                                <span class="time">⏱️ 5-15 phút</span>
+                            </div>
+                            <button class="detail-btn" onclick="openRestaurantModal(6)">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card" data-restaurant="7">
+                        <img src="food/garangion.jpg" class="restaurant-image" alt="">
+                        <div class="restaurant-info">
+                            <h5>Gà Rán Sài Gòn</h5>
+                            <p>Thức ăn nhanh</p>
+                            <div class="restaurant-details">
+                                <span class="rating">⭐ 4.4</span>
+                                <span class="time">⏱️ 10-20 phút</span>
+                            </div>
+                            <button class="detail-btn" onclick="openRestaurantModal(7)">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card" data-restaurant="8">
+                        <img src="food/banhmithitnuong2.jpg" class="restaurant-image" alt="">
+                        <div class="restaurant-info">
+                            <h5>Bánh Mì Thịt Nướng</h5>
+                            <p>Thức ăn nhanh</p>
+                            <div class="restaurant-details">
+                                <span class="rating">⭐ 4.1</span>
+                                <span class="time">⏱️ 8-15 phút</span>
+                            </div>
+                            <button class="detail-btn" onclick="openRestaurantModal(8)">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+            
+            <!-- mon viet -->
+            <div class="category">
+                <h4>🍜 Món Việt</h4>
+                <div class="restaurant-scroll">
+                    <div class="restaurant-card" data-restaurant="11">
+                        <img src="food/bunchahanoi1.jpg" class="restaurant-image" alt="">
+                        <div class="restaurant-info">
+                            <h5>Bún Chả Hà Nội</h5>
+                            <p>Món Việt</p>
+                            <div class="restaurant-details">
+                                <span class="rating">⭐ 4.8</span>
+                                <span class="time">⏱️ 20-30 phút</span>
+                            </div>
+                            <button class="detail-btn" onclick="openRestaurantModal(11)">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card" data-restaurant="12">
+                        <img src="food/miquangdanang.jpg" class="restaurant-image" alt="">
+                        <div class="restaurant-info">
+                            <h5>Mì Quảng Đà Nẵng</h5>
+                            <p>Món Miền Trung</p>
+                            <div class="restaurant-details">
+                                <span class="rating">⭐ 4.7</span>
+                                <span class="time">⏱️ 18-25 phút</span>
+                            </div>
+                            <button class="detail-btn" onclick="openRestaurantModal(12)">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    
+                    <div class="restaurant-card" data-restaurant="13">
+                        <img src="food/banhxeomientay.jpg" class="restaurant-image" alt="">
+                        <div class="restaurant-info">
+                            <h5>Bánh Xèo Miền Tây</h5>
+                            <p>Món Miền Nam</p>
+                            <div class="restaurant-details">
+                                <span class="rating">⭐ 4.5</span>
+                                <span class="time">⏱️ 22-32 phút</span>
+                            </div>
+                            <button class="detail-btn" onclick="openRestaurantModal(13)">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- model -->
+    <div id="restaurantModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRestaurantModal()">&times;</span>
+            <h2 id="restaurantName"></h2>
+            <div class="restaurant-meta">
+                <span id="restaurantRating"></span>
+                <span id="restaurantLocation"></span>
+            </div>
+            <h3>Menu</h3>
+            <div id="menuItems"></div>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h2>Đặt hàng</h2>
+            <div id="orderInfo"></div>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="address">Địa chỉ giao hàng:</label>
+                    <input type="text" id="address" name="address" required>
+                    <div class="error" id="addressError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <div class="error" id="phoneError"></div>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" onclick="closeOrderModal()">Hủy</button>
+                    <button type="submit">Đặt hàng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order History Modal -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeHistoryModal()">&times;</span>
+            <h2>Lịch sử đặt hàng</h2>
+            <div id="orderHistory"></div>
+        </div>
+    </div>
+
+    <script src="js/food.js"></script>
+</body>
+</html>

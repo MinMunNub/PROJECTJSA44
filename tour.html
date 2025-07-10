@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ballexpress</title>
+    <meta name="description" content="Website dat tour du lich Viet Nam voi gia tot nhat. Kham pha cac diem den tuyet voi trong va ngoai nuoc.">
+    <link rel="stylesheet" href="css/tour.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>🚚BallsExpress</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="#my-tours" class="nav-link">Tour cua toi</a>
+                <button class="nav-toggle" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#my-tours" class="mobile-link">Tour cua toi</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">🗺️ Kham pha the gioi cung ban</h1>
+            <p class="hero-subtitle">Trai nghiem nhung chuyen di tuyet voi nhat</p>
+            
+            <div class="search-box">
+                <div class="search-grid">
+                    <div class="search-field">
+                        <label>Diem den</label>
+                        <input type="text" id="destination" placeholder="Ban muon di dau?">
+                    </div>
+                    <div class="search-field">
+                        <label>Ngay di</label>
+                        <input type="date" id="departureDate">
+                    </div>
+                    <div class="search-field">
+                        <label>Ngay ve</label>
+                        <input type="date" id="returnDate">
+                    </div>
+                    <div class="search-field">
+                        <label>So nguoi</label>
+                        <select id="people">
+                            <option value="1">1 nguoi</option>
+                            <option value="2">2 nguoi</option>
+                            <option value="3">3 nguoi</option>
+                            <option value="4">4+ nguoi</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="search-btn" onclick="searchTours()">🔍 Tim kiem</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+            <h3>Bo loc tim kiem</h3>
+            
+            <div class="filter-group">
+                <h4>Khu vuc</h4>
+                <label><input type="checkbox" value="VN"> Viet Nam</label>
+                <label><input type="checkbox" value="Chau A"> Chau A</label>
+                <label><input type="checkbox" value="Chau Au"> Chau Au</label>
+            </div>
+            
+            <div class="filter-group">
+                <h4>Thoi gian</h4>
+                <label><input type="radio" name="duration" value="1-3 ngay"> 1-3 ngay</label>
+                <label><input type="radio" name="duration" value="4-7 ngay"> 4-7 ngay</label>
+                <label><input type="radio" name="duration" value="7+ ngay"> 7+ ngay</label>
+            </div>
+            
+            <div class="filter-group">
+                <h4>Loai tour</h4>
+                <div class="type-buttons">
+                    <button class="type-btn" data-type="Bien">🏝️ Bien</button>
+                    <button class="type-btn" data-type="Nui">⛰️ Nui</button>
+                    <button class="type-btn" data-type="Van hoa">🏛️ Van hoa</button>
+                    <button class="type-btn" data-type="Phieu luu">🛶 Phieu luu</button>
+                </div>
+            </div>
+            
+            <button class="apply-filters-btn" onclick="applyFilters()">Ap dung bo loc</button>
+        </aside>
+
+        <!-- Tours Grid -->
+        <section class="tours-section">
+            <h2>Diem den pho bien</h2>
+            <div class="tours-grid" id="toursGrid">
+                <!-- Tours will be loaded here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Tour Detail Modal -->
+    <div class="modal" id="tourModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTourModal()">&times;</span>
+            <div id="tourDetails">
+                <!-- Tour details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Dat tour</h2>
+            
+            <!-- Tour Info Summary -->
+            <div class="booking-tour-info" id="bookingTourInfo">
+                <!-- Tour info will be loaded here -->
+            </div>
+            
+            <!-- Booking Form -->
+            <form class="booking-form" onsubmit="submitBooking(event)">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label>👤 Ho ten day du</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-field">
+                        <label>📞 So dien thoai</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label>📧 Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label>👥 So luong nguoi</label>
+                        <select id="peopleCount" onchange="updateTotalPrice()">
+                            <option value="1">1 nguoi</option>
+                            <option value="2">2 nguoi</option>
+                            <option value="3">3 nguoi</option>
+                            <option value="4">4 nguoi</option>
+                            <option value="5">5+ nguoi</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label>📅 Ngay di</label>
+                        <input type="date" id="bookingDepartureDate" required>
+                    </div>
+                    <div class="form-field">
+                        <label>📅 Ngay ve</label>
+                        <input type="date" id="bookingReturnDate" required>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label>📝 Ghi chu (tuy chon)</label>
+                    <textarea id="notes" rows="3" placeholder="Yeu cau dac biet hoac ghi chu them..."></textarea>
+                </div>
+                
+                <!-- Payment Options -->
+                <div class="payment-section">
+                    <label>💳 Phuong thuc thanh toan</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="momo">
+                            Momo / ZaloPay / ViettelPay
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="atm">
+                            ATM noi dia
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="card">
+                            The tin dung (Visa/Master)
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Terms Agreement -->
+                <div class="terms-section">
+                    <label>
+                        <input type="checkbox" id="agreeTerms" required>
+                        Toi dong y voi <a href="#">dieu khoan dich vu</a>
+                    </label>
+                </div>
+                
+                <!-- Total Price -->
+                <div class="total-price">
+                    <span>📦 Tong thanh toan:</span>
+                    <span class="price" id="totalPrice">0đ</span>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeBookingModal()">🧭 Huy</button>
+                    <button type="submit" class="btn-primary">Xac nhan dat tour</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- My Tours Section -->
+    <section class="my-tours-section" id="my-tours" style="display: none;">
+        <div class="container">
+            <h1>Tour cua toi</h1>
+            <p>Quan ly tat ca cac tour ban da dat</p>
+            <div class="my-tours-list" id="myToursList">
+                <!-- Booked tours will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>🗺️ TourVN</h3>
+                    <p>Cong ty du lich hang dau Viet Nam, mang den nhung chuyen di tuyet voi nhat.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Dich vu</h4>
+                    <ul>
+                        <li><a href="#">Tour trong nuoc</a></li>
+                        <li><a href="#">Tour nuoc ngoai</a></li>
+                        <li><a href="#">Ve may bay</a></li>
+                        <li><a href="#">Khach san</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ho tro</h4>
+                    <ul>
+                        <li><a href="#">Lien he</a></li>
+                        <li><a href="#">Dieu khoan</a></li>
+                        <li><a href="#">Chinh sach</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Lien he</h4>
+                    <div class="contact-info">
+                        <p>📞 1900 1234</p>
+                        <p>📧 info@tourvn.com</p>
+                        <p>🏢 Ha Noi, Viet Nam</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TourVN. Tat ca cac quyen duoc bao ve.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/tour.js"></script>
+</body>
+</html>

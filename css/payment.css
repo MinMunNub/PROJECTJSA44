@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #8fefa2;
+  background: linear-gradient(to right, #d7ffd7, #7cfe7c);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -378,7 +378,7 @@ button {
 }
 
 .payment-header {
-  position: fixed;               /* luôn nằm cố định trên cùng */
+  position: fixed;            
   top: 0;
   left: 0;
   right: 0;
@@ -386,7 +386,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #00b415b5;
+  background: linear-gradient(to right, #7ddc7d, #5ada5a);
   padding: 10px 30px;
   height: 60px;
 }
@@ -414,7 +414,6 @@ button {
   color: #333;
 }
 
-/* để nội dung bên dưới không bị header che khuất */
 body {
   padding-top: 70px;
 }
@@ -423,4 +422,10 @@ body {
   font-size: 24px;
   font-weight: 600;
   color: white;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.692);
+  color: black;
+  transition: 0.3s ease;
 }

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delivery</title>
+    <link rel="stylesheet" href="css/delivery.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🚚 BallsExpress</h1>
+            </div>
+            <nav class="nav">
+                <a href="#tracking" onclick="showTrackingModal()">Theo dõi</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Thuê tài xế để nhận và giao hàng của bạn đi bất cứ đâu!</h2>
+                <p>Dịch vụ giao hàng nhanh chóng, an toàn và tin cậy. Giao hàng trong ngày chỉ từ 30 phút.</p>
+                <button class="cta-button" onclick="showBookingForm()">Đặt dịch vụ giao hàng</button>
+            </div>
+            <div class="hero-image">
+                <div class="delivery-icon">🚚💨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h3>Dịch vụ của chúng tôi</h3>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h4>Giao hàng tiêu chuẩn</h4>
+                    <p>Giao hàng trong 2-4 giờ</p>
+                    <button class="service-btn" onclick="showBookingForm('standard')">Đặt hàng</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h4>Giao hàng nhanh</h4>
+                    <p>Giao hàng trong 1-2 giờ</p>
+                    <button class="service-btn" onclick="showBookingForm('express')">Đặt hàng</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h4>Giao hàng trong ngày</h4>
+                    <p>Giao hàng trong 30-60 phút</p>
+                    <button class="service-btn" onclick="showBookingForm('same-day')">Đặt hàng</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Đặt dịch vụ giao hàng</h3>
+                <span class="close" onclick="closeBookingForm()">&times;</span>
+            </div>
+            <form id="bookingForm" class="booking-form">
+                <!-- Step 1: Addresses -->
+                <div class="form-step active" id="step1">
+                    <h4>Thông tin địa chỉ</h4>
+                    <div class="form-group">
+                        <label>Địa chỉ nhận hàng 📍</label>
+                        <input type="text" id="pickupAddress" placeholder="Nhập địa chỉ nhận hàng" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ giao hàng 📦</label>
+                        <input type="text" id="dropoffAddress" placeholder="Nhập địa chỉ giao hàng" required>
+                    </div>
+                    <button type="button" class="next-btn" onclick="nextStep(2)">Tiếp theo →</button>
+                </div>
+
+                <!-- Step 2: Package Details -->
+                <div class="form-step" id="step2">
+                    <h4>Thông tin gói hàng</h4>
+                    <div class="form-group">
+                        <label>Kích thước gói hàng</label>
+                        <select id="packageSize" required>
+                            <option value="">Chọn kích thước</option>
+                            <option value="small">Nhỏ (dưới 1kg) 🪶</option>
+                            <option value="medium">Vừa (1-5kg) 📦</option>
+                            <option value="large">To (5-20kg) 🚚</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Khung thời gian giao hàng ⏰</label>
+                        <select id="deliveryTime" required>
+                            <option value="">Chọn thời gian</option>
+                            <option value="standard">Tiêu chuẩn (2-4 giờ)</option>
+                            <option value="express">Nhanh (1-2 giờ)</option>
+                            <option value="same-day">Trong ngày (30-60 phút)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Hãng vận chuyển</label>
+                        <select id="shippingCompany" required>
+                            <option value="">Chọn hãng vận chuyển</option>
+                            <option value="vnpost">VNPost</option>
+                            <option value="ghn">Giao hàng nhanh</option>
+                            <option value="jnt">J&T Express</option>
+                            <option value="viettel">Viettel Post</option>
+                            <option value="shopee">Shopee Express</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="prev-btn" onclick="prevStep(1)">← Quay lại</button>
+                        <button type="button" class="next-btn" onclick="nextStep(3)">Tiếp theo →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Contact Details -->
+                <div class="form-step" id="step3">
+                    <h4>Thông tin liên hệ</h4>
+                    <div class="form-group">
+                        <label>Tên người gửi ☎️</label>
+                        <input type="text" id="senderName" placeholder="Nhập tên người gửi" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại người gửi</label>
+                        <input type="tel" id="senderPhone" placeholder="Nhập số điện thoại" required maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Tên người nhận</label>
+                        <input type="text" id="receiverName" placeholder="Nhập tên người nhận" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại người nhận</label>
+                        <input type="tel" id="receiverPhone" placeholder="Nhập số điện thoại" required maxlength="10">
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="prev-btn" onclick="prevStep(2)">← Quay lại</button>
+                        <button type="button" class="next-btn" onclick="calculatePrice()">Tính giá →</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Pricing -->
+                 <div class="step4-flex-wrapper">
+                                    <div class="form-step" id="step4">
+                    <h4>Giá cước và thanh toán</h4>
+                    <div class="pricing-summary">
+                        <div class="price-item">
+                            <span>Khoảng cách:</span>
+                            <span id="distanceDisplay">-</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Loại dịch vụ:</span>
+                            <span id="serviceTypeDisplay">-</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Phí cơ bản:</span>
+                            <span id="basePrice">-</span>
+                        </div>
+                        <div class="price-item total">
+                            <span>Tổng cộng:</span>
+                            <span id="totalPrice">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Phương thức thanh toán</label>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cod" checked>
+                                <span>Trả tiền khi nhận hàng 💵</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card">
+                                <span>Thẻ tín dụng 💳</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="banking">
+                                <span>Ngân hàng trực tuyến 🏦</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="voucher">
+                                <span>Mã giảm giá 🎫</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="voucher-section" id="voucherSection" style="display: none;">
+                        <div class="form-group">
+                            <label>Mã giảm giá</label>
+                            <input type="text" id="voucherCode" placeholder="Nhập mã giảm giá">
+                            <button type="button" onclick="applyVoucher()">Áp dụng</button>
+                        </div>
+                        <div class="demo-vouchers">
+                            <p>Mã giảm giá demo:</p>
+                            <span class="voucher-code" onclick="useVoucher('GIAM20')">GIAM20</span>
+                            <span class="voucher-code" onclick="useVoucher('FREESHIP')">FREESHIP</span>
+                            <span class="voucher-code" onclick="useVoucher('WELCOME50')">WELCOME50</span>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="prev-btn" onclick="prevStep(3)">← Quay lại</button>
+                        <button type="submit" class="next-btn">✅ Xác nhận đặt hàng</button>
+                    </div>
+                </div>
+                 </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tracking Modal -->
+    <div id="trackingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Theo dõi đơn hàng</h3>
+                <span class="close" onclick="closeTrackingModal()">&times;</span>
+            </div>
+            <div class="tracking-content">
+                <div class="tracking-input">
+                    <input type="text" id="trackingCode" placeholder="Nhập mã đơn hàng">
+                    <button onclick="trackOrder()">Theo dõi</button>
+                </div>
+                <div id="trackingResult" class="tracking-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Đặt hàng thành công!</h3>
+                <span class="close" onclick="closeSuccessModal()">&times;</span>
+            </div>
+            <div class="success-content">
+                <div class="success-icon">✅</div>
+                <h4>Đơn hàng của bạn đã được xác nhận</h4>
+                <p>Mã đơn hàng: <strong id="orderCode"></strong></p>
+                
+                <p>Tài xế sẽ liên hệ với bạn trong 5-10 phút</p>
+                <div class="order-status">
+                    <div class="status-item active">
+                        <span class="status-dot"></span>
+                        <span>Yêu cầu</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot"></span>
+                        <span>Chấp nhận</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot"></span>
+                        <span>Đang lấy hàng</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot"></span>
+                        <span>Đang giao</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-dot"></span>
+                        <span>Hoàn thành</span>
+                    </div>
+                </div>
+                <button class="next-btn" onclick="startTracking()">Bắt đầu theo dõi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/delivery.js"></script>
+</body>
+</html>

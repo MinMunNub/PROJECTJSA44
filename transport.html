@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BallsExpress🚚 - Dich vu van chuyen</title>
+    <meta name="description" content="Dich vu van chuyen nhanh chong va an toan tai Ha Noi voi ballsexpress">
+    <link rel="stylesheet" href="css/transport.css">
+</head>
+<body>
+    <!-- phan dau trang -->
+    <header class="header">
+        <div class="header-container">
+            <div class="company-name">
+                <h1>ballsexpress🚚</h1>
+            </div>
+            <div class="header-right">
+                <a href="#" class="history-btn" onclick="showHistory()">lich su</a>
+                <span class="user-greeting">xin chao, <span id="username">user</span>!</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- noi dung chinh -->
+    <main class="main-content">
+        <!-- form dat xe -->
+        <section class="booking-section">
+            <div class="container">
+                <h2>dat xe nhanh chong</h2>
+                <p>dich vu van chuyen uy tin tai ha noi</p>
+                
+                <form class="booking-form" onsubmit="searchVehicles(event)">
+                    <div class="form-group">
+                        <label for="pickup">📍 diem don khach</label>
+                        <input type="text" id="pickup" placeholder="nhap dia chi don khach" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="destination">🏁 diem den</label>
+                        <input type="text" id="destination" placeholder="nhap dia chi den" required>
+                    </div>
+                    
+                    <button type="submit" class="search-btn">🔍 tim chuyen</button>
+                </form>
+                
+                <!-- diem den pho bien -->
+                <div class="popular-destinations">
+                    <h3>diem den pho bien tai ha noi</h3>
+                    <div class="destinations-grid">
+                        <button class="destination-btn" onclick="selectDestination('san bay noi bai')">
+                            ✈️ san bay noi bai
+                        </button>
+                        <button class="destination-btn" onclick="selectDestination('hoan kiem')">
+                            🏛️ hoan kiem
+                        </button>
+                        <button class="destination-btn" onclick="selectDestination('ga ha noi')">
+                            🚂 ga ha noi
+                        </button>
+                        <button class="destination-btn" onclick="selectDestination('bv bach mai')">
+                            🏥 bv bach mai
+                        </button>
+                        <button class="destination-btn" onclick="selectDestination('dh quoc gia')">
+                            🎓 dh quoc gia
+                        </button>
+                        <button class="destination-btn" onclick="selectDestination('vincom ba trieu')">
+                            🛍️ vincom ba trieu
+                        </button>
+                        <button class="destination-btn" onclick="selectDestination('times city')">
+                            🏢 times city
+                        </button>
+                        <button class="destination-btn" onclick="selectDestination('lotte center')">
+                            🏬 lotte center
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- modal chon xe -->
+    <div class="modal" id="vehicleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>chon loai xe</h3>
+                <span class="close" onclick="closeVehicleModal()">&times;</span>
+            </div>
+            <div class="trip-info">
+                <div class="trip-route">
+                    <span class="route-point">📍 <span id="pickupDisplay"></span></span>
+                    <span class="route-arrow">→</span>
+                    <span class="route-point">🏁 <span id="destinationDisplay"></span></span>
+                </div>
+                <div class="estimated-distance">
+                    <span>khoang cach uoc tinh: <span id="estimatedDistance">5-8 km</span></span>
+                </div>
+            </div>
+            <div class="vehicle-options">
+                
+                <div class="vehicle-card" onclick="selectVehicle('xe om', 35000, '🏍️')">
+                    <div class="vehicle-icon">🏍️</div>
+                    <div class="vehicle-info">
+                        <h4>xe om</h4>
+                        <p>linh hoat, di duong nho</p>
+                        <div class="vehicle-price">35.000đ</div>
+                    </div>
+                </div>
+                
+                <div class="vehicle-card" onclick="selectVehicle('taxi 4 cho', 65000, '🚕')">
+                    <div class="vehicle-icon">🚕</div>
+                    <div class="vehicle-info">
+                        <h4>taxi 4 cho</h4>
+                        <p>thoai mai, an toan</p>
+                        <div class="vehicle-price">65.000đ</div>
+                    </div>
+                </div>
+                
+                <div class="vehicle-card" onclick="selectVehicle('taxi 7 cho', 85000, '🚐')">
+                    <div class="vehicle-icon">🚐</div>
+                    <div class="vehicle-info">
+                        <h4>taxi 7 cho</h4>
+                        <p>rong rai, cho nhieu nguoi</p>
+                        <div class="vehicle-price">85.000đ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal tim tai xe -->
+    <div class="modal" id="driverModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>dang tim tai xe</h3>
+            </div>
+            <div class="driver-search">
+                <div class="selected-vehicle-info">
+                    <div class="vehicle-display">
+                        <span class="vehicle-icon-large" id="selectedVehicleIcon">🚕</span>
+                        <div class="vehicle-details">
+                            <h4 id="selectedVehicleName">taxi 4 cho</h4>
+                            <p id="selectedVehiclePrice">65.000đ</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="search-status">
+                    <div class="search-animation">
+                        <div class="spinner"></div>
+                    </div>
+                    <div class="search-text">
+                        <h4 id="searchStatusText">dang tim tai xe gan ban...</h4>
+                        <p id="searchStatusSubtext">vui long cho trong giay lat</p>
+                    </div>
+                </div>
+                
+                <div class="search-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progressText">tim kiem... 0%</span>
+                    </div>
+                </div>
+                
+                <button class="cancel-search-btn" onclick="cancelSearch()">huy tim kiem</button>
+            </div>
+            
+            <!-- tim thay tai xe -->
+            <div class="driver-found" id="driverFound" style="display: none;">
+                <div class="driver-info">
+                    <div class="driver-avatar">
+                        <div class="avatar-circle">👨‍💼</div>
+                    </div>
+                    <div class="driver-details">
+                        <h4 id="driverName">nguyen van a</h4>
+                        <div class="driver-rating">
+                            <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-score">4.8 (127 danh gia)</span>
+                        </div>
+                        <div class="driver-vehicle">
+                            <span id="driverVehicleInfo">honda city - 30a-12345</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trip-summary">
+                    <div class="summary-row">
+                        <span>khoang cach:</span>
+                        <span id="tripDistance">6.2 km</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>thoi gian uoc tinh:</span>
+                        <span id="tripDuration">12-15 phut</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>gia cuoc:</span>
+                        <span id="tripPrice">65.000đ</span>
+                    </div>
+                </div>
+                
+                <div class="trip-actions">
+                    <button class="confirm-trip-btn" onclick="confirmTrip()">xac nhan chuyen di</button>
+                    <button class="cancel-trip-btn" onclick="cancelTrip()">huy chuyen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal lich su don hang -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>lich su chuyen di</h3>
+                <span class="close" onclick="closeHistoryModal()">&times;</span>
+            </div>
+            <div class="history-content">
+                <div class="history-list" id="historyList">
+                    <!-- lich su se duoc tai o day -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal thanh cong -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-content">
+                <div class="success-icon">✅</div>
+                <h3>dat xe thanh cong!</h3>
+                <p>chuyen di cua ban da duoc xac nhan. tai xe se lien he voi ban trong thoi gian som nhat.</p>
+                <div class="trip-code">
+                    <span>ma chuyen di: <strong id="tripCode">bex001</strong></span>
+                </div>
+                <button class="ok-btn" onclick="closeSuccessModal()">ok</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/transport.js"></script>
+</body>
+</html>

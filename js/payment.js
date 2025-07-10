@@ -176,7 +176,7 @@ function setupCardClick() {
   });
 }
 
-// Load everything on page start
+// load
 window.onload = function () {
   updateUI();
   loadCardsFromStorage();

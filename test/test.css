@@ -1,4 +1,4 @@
-
+/* Reset & Background */
 body {
   margin: 0;
   padding: 0;
@@ -10,21 +10,25 @@ body {
 }
 
 
+/* Header */
 .header {
   display: flex;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 30px;
   border-bottom: 2px solid #8be28b;
-  background-color: #ccfccc;
+  background-color: #f9fff9;
+  position: relative;
 }
 
 .logo {
   height: 40px;
-  margin-right: 10px; 
 }
 
 .header h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0;
   font-size: 24px;
   color: #2c6e2c;
@@ -32,9 +36,7 @@ body {
   letter-spacing: 1px;
 }
 
-
-
-
+/* Tabs */
 .tabs {
   display: flex;
   justify-content: center;
@@ -58,7 +60,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
 }
 
-
+/* Tab Content */
 .tab-content {
   display: none;
   padding: 10px 30px;
@@ -68,7 +70,7 @@ body {
   display: block;
 }
 
-/* msg */
+/* Message Cards */
 .message-card {
   background: white;
   border-radius: 12px;
@@ -90,7 +92,7 @@ body {
   font-size: 16px;
 }
 
-
+/* Icon menu */
 .msg-menu-icon {
   width: 20px;
   height: 20px;
@@ -98,7 +100,7 @@ body {
   filter: brightness(0.6);
 }
 
-
+/* Menu Popup */
 .msg-menu {
   position: absolute;
   right: 20px;
@@ -127,7 +129,7 @@ body {
   background: #f1fff1;
 }
 
-/* popup */
+/* Chat Popup */
 .chat-popup {
   display: none;
   position: fixed;
@@ -143,7 +145,7 @@ body {
   z-index: 9999;
 }
 
-
+/* Chat Header */
 .chat-header {
   background: #b5f6b5;
   display: flex;
@@ -171,7 +173,7 @@ body {
   cursor: pointer;
 }
 
-
+/* Chat Body */
 .chat-body {
   padding: 10px;
   height: 200px;
@@ -200,7 +202,7 @@ body {
   text-align: right;
 }
 
-/* input */
+/* Chat Input */
 .chat-input-area {
   display: flex;
   padding: 10px;
