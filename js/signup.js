@@ -32,7 +32,7 @@ form.addEventListener("submit", (e) => {
   form.reset();
 
   setTimeout(() => {
-  window.location.href = "baicuoikhoa.html";
+  window.location.href = "index.html";
     }, 3000);
 
 

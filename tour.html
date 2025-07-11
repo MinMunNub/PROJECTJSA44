@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/tour.css">
 </head>
 <body>
-    <!-- Navigation -->
+    
     <nav class="nav">
         <div class="nav-container">
             <div class="nav-brand">
@@ -24,7 +24,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    
     <section class="hero">
         <div class="hero-container">
             <h1 class="hero-title">🗺️ Kham pha the gioi cung ban</h1>
@@ -59,9 +59,9 @@
         </div>
     </section>
 
-    <!-- Main Content -->
+    
     <main class="main-content">
-        <!-- Filter Sidebar -->
+        
         <aside class="filter-sidebar">
             <h3>Bo loc tim kiem</h3>
             
@@ -92,37 +92,37 @@
             <button class="apply-filters-btn" onclick="applyFilters()">Ap dung bo loc</button>
         </aside>
 
-        <!-- Tours Grid -->
+       
         <section class="tours-section">
             <h2>Diem den pho bien</h2>
             <div class="tours-grid" id="toursGrid">
-                <!-- Tours will be loaded here by JavaScript -->
+                
             </div>
         </section>
     </main>
 
-    <!-- Tour Detail Modal -->
+  
     <div class="modal" id="tourModal">
         <div class="modal-content">
             <span class="close" onclick="closeTourModal()">&times;</span>
             <div id="tourDetails">
-                <!-- Tour details will be loaded here -->
+               
             </div>
         </div>
     </div>
 
-    <!-- Booking Modal -->
+    
     <div class="modal" id="bookingModal">
         <div class="modal-content">
             <span class="close" onclick="closeBookingModal()">&times;</span>
             <h2>Dat tour</h2>
             
-            <!-- Tour Info Summary -->
+            
             <div class="booking-tour-info" id="bookingTourInfo">
-                <!-- Tour info will be loaded here -->
+            
             </div>
             
-            <!-- Booking Form -->
+            
             <form class="booking-form" onsubmit="submitBooking(event)">
                 <div class="form-grid">
                     <div class="form-field">
@@ -166,7 +166,7 @@
                     <textarea id="notes" rows="3" placeholder="Yeu cau dac biet hoac ghi chu them..."></textarea>
                 </div>
                 
-                <!-- Payment Options -->
+               
                 <div class="payment-section">
                     <label>💳 Phuong thuc thanh toan</label>
                     <div class="payment-options">
@@ -185,7 +185,7 @@
                     </div>
                 </div>
                 
-                <!-- Terms Agreement -->
+               
                 <div class="terms-section">
                     <label>
                         <input type="checkbox" id="agreeTerms" required>
@@ -193,13 +193,13 @@
                     </label>
                 </div>
                 
-                <!-- Total Price -->
+    
                 <div class="total-price">
                     <span>📦 Tong thanh toan:</span>
                     <span class="price" id="totalPrice">0đ</span>
                 </div>
                 
-                <!-- Action Buttons -->
+
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" onclick="closeBookingModal()">🧭 Huy</button>
                     <button type="submit" class="btn-primary">Xac nhan dat tour</button>
@@ -208,57 +208,52 @@
         </div>
     </div>
 
-    <!-- My Tours Section -->
+ 
     <section class="my-tours-section" id="my-tours" style="display: none;">
         <div class="container">
             <h1>Tour cua toi</h1>
             <p>Quan ly tat ca cac tour ban da dat</p>
             <div class="my-tours-list" id="myToursList">
-                <!-- Booked tours will be displayed here -->
             </div>
         </div>
     </section>
+      <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h2>BallsExpress</h2>
+      <p>Giao hàng nhanh chóng, an toàn và đáng tin cậy trên toàn thế giới. BallsExpress cam kết mang đến dịch vụ tốt nhất để hàng hóa của bạn đến đúng nơi, đúng lúc.</p>
+    </div>
+    <div class="footer-links">
+      <h3>Liên kết nhanh</h3>
+      <ul>
+        <li><a href="#">Theo dõi đơn hàng</a></li>
+        <li><a href="#">Bảng giá vận chuyển</a></li>
+        <li><a href="#">Dịch vụ của chúng tôi</a></li>
+        <li><a href="#">Câu hỏi thường gặp</a></li>
+        <li><a href="#">Liên hệ hỗ trợ</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h3>Liên hệ</h3>
+      <p>Email: BallsExpress@be.com</p>
+      <p>Điện thoại: +84 081 251 3855</p>
+      <p>Trụ sở chính: 123 Đường Tốc Độ, Quận 1, TP.HCM, Việt Nam</p>
+    </div>
+    <div class="footer-social">
+      <h3>Theo dõi chúng tôi</h3>
+      <div class="social-icons">
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook" /></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="Twitter" /></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" /></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 BallsExpress. Đã đăng ký bản quyền.</p>
+  </div>
+</footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>🗺️ TourVN</h3>
-                    <p>Cong ty du lich hang dau Viet Nam, mang den nhung chuyen di tuyet voi nhat.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Dich vu</h4>
-                    <ul>
-                        <li><a href="#">Tour trong nuoc</a></li>
-                        <li><a href="#">Tour nuoc ngoai</a></li>
-                        <li><a href="#">Ve may bay</a></li>
-                        <li><a href="#">Khach san</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Ho tro</h4>
-                    <ul>
-                        <li><a href="#">Lien he</a></li>
-                        <li><a href="#">Dieu khoan</a></li>
-                        <li><a href="#">Chinh sach</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Lien he</h4>
-                    <div class="contact-info">
-                        <p>📞 1900 1234</p>
-                        <p>📧 info@tourvn.com</p>
-                        <p>🏢 Ha Noi, Viet Nam</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 TourVN. Tat ca cac quyen duoc bao ve.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="js/tour.js"></script>
 </body>
